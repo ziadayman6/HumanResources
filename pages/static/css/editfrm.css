@@ -1,0 +1,138 @@
+form{
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
+
+.left_info
+{
+    display: flex;
+    width: 50%;
+    padding: 30px;
+    flex-direction: column;
+    background-color: white;
+    color: rgb(57, 111, 162);
+    border-top-left-radius:20px ;
+}
+.right_info{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 30px;
+    background-color: rgb(57, 111, 162);
+    color: white;
+    border-bottom-right-radius: 20px;
+}
+
+.btm{
+    margin-bottom: 3%;
+}
+
+form p{
+    display: none;
+    font-weight: bold;
+    font-size: 15px;
+    color: red;
+}
+
+.left_info input:not([type="radio"])
+{
+    width: 60%;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 15px;
+    outline: none;
+    border: transparent;
+    background-color: rgb(231, 230, 230, 0.3);
+    border-bottom: 3px solid rgb(57 111 162);
+    border-radius: 5px;
+    color: rgb(57 111 162);
+}
+
+.left_info input::placeholder{
+    opacity: 0.5;
+}
+
+.right_info input:not([type="submit"])
+{
+    width: 60%;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 15px;
+    outline: none;
+    border: transparent;
+    background-color: rgb(231, 230, 230, 0.3);
+    border-bottom: 3px solid white;
+    border-radius: 5px;
+    color: white;
+}
+
+.right_info input::placeholder{
+    opacity: 0.5;
+    color: white;
+}
+
+.btn
+{
+    width: 70%;
+    padding: 10px 20px;
+    color: rgb(57 111 162);
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+}
+.btn:hover{
+    opacity: 80%;
+    cursor: pointer;
+}
+.edit{
+    display: none;
+    background-color: white;
+    font-size: 25px;
+    padding: 30px;
+    color: rgb(57 111 162);
+    border-radius: 20px;
+    box-shadow: rgb(57, 111, 162, 0.7) 4px 3px 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.add{
+    display: none;
+    background-color: white;
+    font-size: 25px;
+    padding: 30px;
+    color: rgb(57 111 162);
+    border-radius: 20px;
+    box-shadow: rgb(57, 111, 162, 0.7) 4px 3px 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width : 600px) {
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .right_info,
+    .left_info{
+        width: 100%;
+    }
+    form{
+        align-items: center;
+        flex-direction: column;
+        width: 90%;
+    }
+    .left_info input:not([type="radio"]){
+        width: 70%;
+    }
+    .right_info input:not([type="submit"]){
+        width: 70%;
+    }
+}

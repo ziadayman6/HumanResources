@@ -1,0 +1,148 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Vacation form   
+        </title>
+        <link rel="stylesheet" href="{% static 'css/navfoter.css' %}">
+        <link rel="stylesheet" href="{% static 'css/formm.css' %}">
+    </head>
+    <style>
+		.overlay {
+		height: 100%;
+		width: 0;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		background-color: rgba(57,111,162);
+		overflow-x: hidden;
+		transition: 0.5s;
+		}
+		hr{
+			background-color: white;
+			border: none;
+			height: 1px;
+		}
+		.overlay-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		text-align: center;
+		margin-top: -30px;
+		}
+
+		.overlay a{
+		padding: 20px;
+		text-decoration: none;
+		font-size: 30px;
+		color: white;
+		display: block;
+		transition: 0.3s;
+		}
+
+		.overlay a:hover, .overlay a:focus {
+		color: #f1f1f1;
+		}
+
+		.overlay .closebtn {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+		}
+	</style>
+    <body>
+        <nav>
+            <img src="{% static 'imgs/HR.png' %}" alt="logo">
+            <div class="hide">
+                <ul>
+                    <li><a href="../home/">Home </a></li>
+                    <li><a href="../edittable/">Edit employee data</a></li>
+                    <li><a href="../add/">Add new employee </a></li>
+                    <li><a href="../request/">Vacation Requests </a></li>
+                    <li><a href="#">Vacation form </a></li>
+                    <li><a href="../login/">Log out</a></li>
+                </ul>    
+            </div>
+            <span onclick="openNav()" style="cursor: pointer;">
+                <i class="fa-solid fa-bars-staggered" style="color: rgb(57, 111, 162);"></i>
+            </span>
+        </nav>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <hr>
+                <a href="../../home/">Home</a>
+                <hr>
+                <a href="../../edittable/">Edit employee data</a>
+                <hr>
+                <a href="../../add/">Add new employee</a>
+                <hr>
+                <a href="../../request/">Vacation requests</a>
+                <hr>
+                <a href="#">Vacation form</a>
+                <hr>
+                <a href="../../login/">Log out</a>
+                <hr>
+            </div>
+        </div>    
+        <center>
+            <section>
+                <form method="post" action="" id="requestform">
+                    {% csrf_token %}
+                    <h1 style="color: rgb(57,111,162);">Vacation form</h1><br><br>
+                    <div class="btm">
+                        <input type="text" placeholder="Name" class="input_field" id = "nmField" name="Name">
+                    </div>
+                    <div class="btm">
+                        <input type="text" placeholder="E-mail" class="input_field" id = "mailField" name="Email">
+                    </div>
+                    <div class="btm">
+                        <input type="text" placeholder="ID" class="input_field"id = "IDField" name="ID">
+                        <p id="confirm">Invalid ID</p>
+                    </div>
+                    <div class="btm">
+                        <input type="number" placeholder="Number of vacation days" class="input_field" min="1"  id = "vacDaysField" name="Vac_days">
+                    </div>
+                    <div class="btm">
+                        <textarea rows="4" cols="40" placeholder="Enter the reason for vacation" id = "reasonField" name="Reason"></textarea>
+                    </div>
+                    <div class="btm">
+                        <label>from</label><br>
+                        <input type="date" id="StartingField" name="From" min="">
+                    </div>
+                    <div class="btm">
+                        <label>to</label><br>
+                        <input type="date" id="endingField" name="To">
+                    </div>
+                    <input type="submit" value="Submit" id="btn">
+                    <div class="add" id = "add">
+                        A request for vacation had been made Successfully &#10004;
+                    </div>
+                </form>    
+            </section>    
+            <div id="arr" style="display: none;">
+                {% for x in mydataids %}
+                        {{x.id_number}}
+                {% endfor %}
+            </div>
+        </center>
+        <footer class="footer">
+            <p><span>&copy;2023</span> Human Resources Website. All rights reserved.</p>
+        </footer>
+        <script>
+            function openNav() {
+                document.getElementById("myNav").style.width = "100%";
+            }
+            
+            function closeNav() {
+                document.getElementById("myNav").style.width = "0%";
+            }
+        </script>    
+        <script src="https://kit.fontawesome.com/3de607b508.js" crossorigin="anonymous"></script>
+        <script src="{% static 'js/vacaform.js' %}"></script>
+    </body>
+    
+    </html>

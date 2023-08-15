@@ -1,0 +1,169 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html style>
+<head>
+    <title>Edit an employee</title>
+    <link rel="stylesheet" href="{% static 'css/navfoter.css' %}">
+    <link rel="stylesheet" href="{% static 'css/editfrm.css' %}">
+</head>
+<style>
+    .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(57,111,162);
+    overflow-x: hidden;
+    transition: 0.5s;
+    }
+    hr{
+        background-color: white;
+        border: none;
+        height: 1px;
+    }
+    .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: -30px;
+    }
+
+    .overlay a{
+    padding: 20px;
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    }
+
+    .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+    }
+
+    .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    }
+</style>
+<body>
+	<nav>
+		<img src="{% static 'imgs/HR.png' %}" alt="logo">
+        <div class="hide">
+            <ul>
+                <li><a href="../home/">Home </a></li>
+                <li><a href="../edittable/">Edit employee data</a></li>
+                <li><a href="../add/">Add new employee </a></li>
+                <li><a href="../request/">Vacation Requests </a></li>
+                <li><a href="../form/">Vacation form </a></li>
+                <li><a href="../login/">Log out</a></li>
+            </ul>    
+        </div>
+		<span onclick="openNav()" style="cursor: pointer;">
+			<i class="fa-solid fa-bars-staggered" style="color: rgb(57, 111, 162);"></i>
+		</span>
+	</nav>
+    <div id="myNav" class="overlay">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div class="overlay-content">
+			<hr>
+			<a href="../../home/">Home</a>
+			<hr>
+			<a href="../../edittable/">Edit employee data</a>
+			<hr>
+			<a href="../../add/">Add new employee</a>
+			<hr>
+			<a href="../../request/">Vacation requests</a>
+			<hr>
+			<a href="../../form/">Vacation form</a>
+			<hr>
+			<a href="../../login/">Log out</a>
+			<hr>
+		</div>
+	</div>
+    <center>
+        <section>
+            <form method="post" action="" id="editform">
+                {% csrf_token %}
+                <div class="left_info">
+                    <div class="btm">
+                        <input type="hidden" placeholder="ID#" id="ID" name="idd">
+                    </div>
+                    <h2 class="btm">General info</h2><br>
+                    <div class="btm">
+                        <input type="text" placeholder="Name" class="input_field" id = "nmField" disabled><br>      
+                    </div>
+                    <div class="btm">
+                        <input type="email" placeholder="E-mail" class="input_field" id = "mailField" name="maill"><br>
+                    </div>
+                    <div class="btm">
+                        <input type="text" placeholder="Address" class="input_field" id = "addressField" name="addresss"><br>    
+                    </div>
+                    <div class="btm">
+                        <input type="number" placeholder="Phone number" class="input_field" id = "phoneField" name="phonee"><br>    
+                    </div>
+                    <div>
+                        <input type="number" placeholder="ID" class="input_field" id = "IDField" disabled><br>      
+                    </div>
+                    <div>
+                        <br><label><b>Gender:</b></label><br>
+                        <input type="radio" name="gen" id="male" value="Male" disabled><span>Male</span>
+                        <input type="radio" name="gen" class="btm" id="female" value="Female" disabled><span>Female</span><br>  
+                        <p id="gender">Please choose your gender</p>  
+                    </div>
+                    <div>
+                        <br><label><b>Martial status:</b></label><br>
+                        <input type="radio" name="mart" id="single" value="Single"><span>Single</span>
+                        <input type="radio" name="mart" id="Married" value="Married"><span>Married</span><br>
+                        <input type="radio" name="mart" id="Widowed" value="Widowed"><span>Widowed</span>
+                        <input type="radio" name="mart" class="btm" id="Divorced" value="Divorced"><span>Divorced</span><br>  
+                        <p id="martial">Please choose your martial status</p>    
+                    </div>
+                    <div>
+                        <br><label><b>Date of Birth</b></label><br>
+                        <input type="date" placeholder="Date of birth" class="input_field" id="date" name="datee">
+                    </div>
+                </div>
+                <div class="right_info">
+                    <h2 class="btm">Bussiness info</h2><br>
+                    <div class="btm">
+                        <input type="number" placeholder="available vacation days" min="1" id = "avVacDaysField" name="vacc"><br>
+                    </div>
+                    <div class="btm">
+                        <input type="number" placeholder="approved vacation days" min="1"  id = "vacDaysField" name="app"><br> 
+                    </div>
+                    <div class="btm">
+                        <input type="number" placeholder="Salary" min="1000" step ="100" id = "salaryField" name="salaryy"><br>
+                    </div><br><br>
+                    <div>
+                        <input type="submit" value = "Edit Employee" class="btn" id="btn">
+                    </div>
+                </div>
+                <div class="add" id = "add">
+                    An employee data has been updated Successfully &#10004;
+                </div>    
+            </form>
+        </section>    
+    </center>
+    <footer class="footer">
+        <p><span>&copy;2023</span> Human Resources Website. All rights reserved.</p>
+    </footer>
+    <script>
+		function openNav() {
+			document.getElementById("myNav").style.width = "100%";
+		}
+		
+		function closeNav() {
+			document.getElementById("myNav").style.width = "0%";
+		}
+	</script>
+    <script src="https://kit.fontawesome.com/3de607b508.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/editform.js' %}"></script>
+</body>
+</html>

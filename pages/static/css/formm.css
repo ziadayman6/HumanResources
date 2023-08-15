@@ -1,0 +1,95 @@
+form{
+    background-color: white;
+    width: 45%;
+    padding: 50px;
+    border-radius: 20px 0px 20px 0px ;
+    box-shadow: rgb(57, 111, 162, 0.7) 4px 3px 6px;
+}
+
+form input{
+    width: 60%;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 15px;
+    outline: none;
+    border: transparent;
+    background-color: rgb(231, 230, 230, 0.3);
+    border-bottom: 3px solid rgb(57 111 162);
+    border-radius: 5px;
+    color: rgb(57 111 162);
+}
+
+form label{
+    color: rgb(57 111 162);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btm{
+    margin-bottom: 5%;
+}
+
+form p{
+    display: none;
+    color: red;
+}
+
+form input[type="submit"]{
+    border: none;
+    background-color: rgb(57 111 162);
+    color: white;
+    width: 68%;
+}
+#btn:hover{
+    opacity: 80%;
+    cursor: pointer;
+}
+textarea{  
+    width:65%;
+    padding: 10px 20px;
+    font-size: 15px;
+    outline: none;
+    border: transparent;
+    background-color: rgb(231, 230, 230, 0.3);
+    border-bottom: 3px solid rgb(57 111 162);
+    border-radius: 5px;
+    color: rgb(57 111 162);
+}
+
+::placeholder{
+    opacity: 0.5;
+}
+.add{
+    display: none;
+    background-color: white;
+    font-size: 25px;
+    padding: 30px;
+    color: rgb(57 111 162);
+    border-radius: 20px;
+    box-shadow: rgb(57, 111, 162, 0.7) 4px 3px 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+
+@media (max-width : 600px) {
+    .add{
+        top: 20%;
+    }
+    form{
+        width: 90%;
+        box-shadow: rgb(57, 111, 162, 0.7) 3px 2px 6px;
+    }
+    form input,
+    textarea{
+        width: 80%;
+    }
+}

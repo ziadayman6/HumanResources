@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'css/homee.css' %}">
+	<link rel="stylesheet" href="{% static 'css/navfoter.css' %}">
+	<meta charset="utf-8">
+	<title>Human Resources</title>
+</head>
+<style>
+	.overlay {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	background-color: rgba(57,111,162);
+	overflow-x: hidden;
+	transition: 0.5s;
+	}
+	hr{
+		background-color: white;
+		border: none;
+		height: 1px;
+	}
+	.overlay-content {
+	position: relative;
+	top: 25%;
+	width: 100%;
+	text-align: center;
+	margin-top: -30px;
+	}
+
+	.overlay a{
+	padding: 20px;
+	text-decoration: none;
+	font-size: 30px;
+	color: white;
+	display: block;
+	transition: 0.3s;
+	}
+
+	.overlay a:hover, .overlay a:focus {
+	color: #f1f1f1;
+	}
+
+	.overlay .closebtn {
+	position: absolute;
+	top: 20px;
+	right: 45px;
+	font-size: 60px;
+	}
+</style>
+<body>
+	<nav>
+		<img src="{% static 'imgs/HR.png' %}" alt="logo">
+		<div class="hide">
+			<ul>
+				<li><a href="#">Home </a></li>
+				<li><a href="../../edittable/">Edit employee data</a></li>
+				<li><a href="../../add/">Add new employee </a></li>
+				<li><a href="../../request/">Vacation requests </a></li>
+				<li><a href="../../form/">Vacation form </a></li>
+				<li><a href="../../login/">Log out</a></li>
+			</ul>	
+		</div>
+		<span onclick="openNav()" style="cursor: pointer;">
+			<i class="fa-solid fa-bars-staggered" style="color: rgb(57, 111, 162);"></i>
+		</span>
+	</nav>
+	<div id="myNav" class="overlay">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div class="overlay-content">
+			<hr>
+			<a href="#">Home</a>
+			<hr>
+			<a href="../../edittable/">Edit employee data</a>
+			<hr>
+			<a href="../../add/">Add new employee</a>
+			<hr>
+			<a href="../../request/">Vacation requests</a>
+			<hr>
+			<a href="../../form/">Vacation form</a>
+			<hr>
+			<a href="../../login/">Log out</a>
+			<hr>
+		</div>
+	</div>
+	<center>
+		<section>
+			<h1>Welcome to the Human Resources Website</h1>
+			<p>This website allows you to manage employee information, vacation requests, and approvals. <br>
+			Use the navigation bar above to access different pages.</p>
+		</section>	
+	</center>	
+	<footer class="footer">
+		<p><span>&copy;2023</span> Human Resources Website. All rights reserved.</p>
+	</footer>
+	<script>
+		function openNav() {
+			document.getElementById("myNav").style.width = "100%";
+		}
+		
+		function closeNav() {
+			document.getElementById("myNav").style.width = "0%";
+		}
+	</script>
+	<script src="https://kit.fontawesome.com/3de607b508.js" crossorigin="anonymous"></script>
+</body>
+</html>

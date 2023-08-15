@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/loginnn.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <img src="{% static 'imgs/HR.png' %}" alt="logo">
+    <center>
+        <div class="container">
+            <h2>LOGIN</h2>
+            <form id="loginform" action="../home/">
+                <div>
+                    <label>Username</label><br>
+                    <input type="text" placeholder="Username" id="Username">
+                </div>
+                <div>
+                    <label>Password</label><br>
+                    <input type="password"placeholder="Password" id="pass">
+                </div>
+                <div>
+                    <input type="checkbox"> 
+                    <label class="reme">remember me</label>
+                </div>
+                <input type="submit" value="Login" id="btn">
+            </form>    
+        </div>
+    </center>
+    <script src="{% static 'js/loginnn.js' %}"></script>
+</body>
+</html>

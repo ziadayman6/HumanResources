@@ -1,0 +1,54 @@
+section h1{
+    font-size: 3vw;
+    color: rgb(57, 111, 162);
+    margin-bottom: 7%;
+    animation: jump 4s infinite;
+}
+
+section p{
+    font-size: 1.6vw;
+    width: fit-content;
+    color: rgb(57, 111, 162);
+    padding: 3vw;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(57, 111, 162);
+    transition: padding 1s;
+}
+
+@keyframes jump{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-70%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes jump2{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-30%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}    
+
+@media (max-width : 600px) {
+    section h1{
+        font-size: 9vw;
+        margin: 15% 0px;
+        animation: jump2 4s infinite;
+    }
+    section p{
+        font-size: 5vw;
+        padding: 10vw;
+        box-shadow: 2px 2px 3px rgb(57, 111, 162);
+    }
+}
